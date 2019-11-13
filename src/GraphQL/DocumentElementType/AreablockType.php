@@ -53,7 +53,9 @@ class AreablockType extends ObjectType
                                     $indices = $value->getData();
                                     $result = [];
                                     foreach($indices as $index) {
-                                        $result[] = (int) $index['key'];
+                                        if (!$index['hidden']) {
+                                            $result[] = (int) $index['key'];
+                                        }
                                     }
                                     return $result;
                                 }
